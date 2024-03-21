@@ -1,12 +1,12 @@
 import csv
 import matplotlib.pyplot as plt
 import numpy as np
+from datetime import datetime
 
 
 def csv_check():
     # Initialize lists to store valid records
-    identifiers = []
-    distances_meters = []
+    records = []
 
     # Open and read the CSV file
     with open("distances.csv", "r") as f:
@@ -14,23 +14,21 @@ def csv_check():
         next(reader)  # Skip header row
         for row in reader:
             try:
-                # Extract only the last 2 hex values of the MAC address
+                # Convert timestamp to datetime object
+                timestamp = datetime.fromisoformat(row[0])
                 identifier = ":".join(row[1].split(":")[-2:])
                 distance_meters = float(row[2])
-                identifiers.append(identifier)
-                distances_meters.append(distance_meters)
+                records.append((timestamp, identifier, distance_meters))
             except ValueError as e:
                 print(f"Error converting row to float: {row}. Error: {e}")
 
-    # Convert distances to feet or inches
-    distances = []
-    for distance in distances_meters:
-        if distance < 0.3048:  # Less than a foot
-            distance_inches = distance * 39.3701
-            distances.append(distance_inches)
-        else:
-            distance_feet = distance * 3.28084
-            distances.append(distance_feet)
+    # Sort records by timestamp
+    sorted_records = sorted(records, key=lambda x: x[0])
+
+    # Extract data for plotting
+    timestamps = [record[0] for record in sorted_records]
+    identifiers = [record[1] for record in sorted_records]
+    distances = [record[2] for record in sorted_records]
 
     # Create a polar chart if we have valid data
     if distances:
@@ -39,7 +37,9 @@ def csv_check():
         )  # Distribute identifiers evenly around the circle
 
         # Create polar plot
-        fig, ax = plt.subplots(figsize=(10, 8), subplot_kw={"projection": "polar"})
+        fig, ax = plt.subplots(
+            figsize=(14, 10), subplot_kw={"projection": "polar"}
+        )  # Adjust the figure size as needed
 
         # Define colormap
         colors = plt.cm.viridis(
@@ -53,13 +53,13 @@ def csv_check():
         ax.set_xticklabels(identifiers)
 
         # Set the label for distance
-        ax.set_ylabel("Distance (feet/inches)")
+        ax.set_ylabel("Distance (meters)")
 
         # Add a legend showing full MAC addresses (or whatever your identifier is)
         # Note: This assumes that `row[1]` contains the full MAC address or identifier you wish to show in the legend
         ax.legend(
             bars,
-            [row[1] for row in csv.reader(open("distances.csv"))][1:],
+            [record[1] for record in sorted_records],
             title="MAC Addresses",
             loc="upper right",
             bbox_to_anchor=(1.4, 1.1),
