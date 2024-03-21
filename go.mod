@@ -11,6 +11,7 @@ require (
 	github.com/ajstarks/svgo v0.0.0-20211024235047-1546f124cd8b // indirect
 	github.com/andybalholm/stroke v0.0.0-20230904101225-24ef450bc62c // indirect
 	github.com/campoy/embedmd v1.0.0 // indirect
+	github.com/dutchcoders/go-ouitools v0.0.0-20150909074929-ac8139d3326a // indirect
 	github.com/go-fonts/liberation v0.3.2 // indirect
 	github.com/go-latex/latex v0.0.0-20231108140139-5c1ce85aa4ea // indirect
 	github.com/go-pdf/fpdf v0.9.0 // indirect

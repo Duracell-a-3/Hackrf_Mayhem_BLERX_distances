@@ -18,6 +18,8 @@ github.com/andybalholm/stroke v0.0.0-20230904101225-24ef450bc62c h1:hHefapU8Zg8r
 github.com/andybalholm/stroke v0.0.0-20230904101225-24ef450bc62c/go.mod h1:ccdDYaY5+gO+cbnQdFxEXqfy0RkoV25H3jLXUDNM3wg=
 github.com/campoy/embedmd v1.0.0 h1:V4kI2qTJJLf4J29RzI/MAt2c3Bl4dQSYPuflzwFH2hY=
 github.com/campoy/embedmd v1.0.0/go.mod h1:oxyr9RCiSXg0M3VJ3ks0UGfp98BpSSGr0kpiX3MzVl8=
+github.com/dutchcoders/go-ouitools v0.0.0-20150909074929-ac8139d3326a h1:k0tlcLlo0xiIQ+PsvXHcMw5lmrWJ2dgtplMk5SnvAuw=
+github.com/dutchcoders/go-ouitools v0.0.0-20150909074929-ac8139d3326a/go.mod h1:iw2+sjeXZHqxa3T+ufyw4bBRZyfp5B4prg1YPMHV4V0=
 github.com/go-fonts/liberation v0.3.2 h1:XuwG0vGHFBPRRI8Qwbi5tIvR3cku9LUfZGq/Ar16wlQ=
 github.com/go-fonts/liberation v0.3.2/go.mod h1:N0QsDLVUQPy3UYg9XAc3Uh3UDMp2Z7M1o4+X98dXkmI=
 github.com/go-latex/latex v0.0.0-20231108140139-5c1ce85aa4ea h1:DfZQkvEbdmOe+JK2TMtBM+0I9GSdzE2y/L1/AmD8xKc=
